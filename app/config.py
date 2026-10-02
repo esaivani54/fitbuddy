@@ -16,6 +16,10 @@ class Settings(BaseSettings):
     GEMINI_API_KEY: str = ""
     GEMINI_WORKOUT_MODEL: str = "gemini-2.5-flash"
     GEMINI_NUTRITION_MODEL: str = "gemini-2.5-flash"
+
+    # Public URLs for Cross-Origin Hosting
+    BACKEND_URL: str = ""
+    FRONTEND_URL: str = ""
     
     class Config:
         env_file = ".env"

@@ -15,10 +15,13 @@ from app.services.workout_service import workout_service
 from app.services.nutrition_service import nutrition_service
 from app.services.admin_service import admin_service
 from app.utils.date_context import get_current_app_date, resolve_plan_day
+from app.config import settings
 
 logger = logging.getLogger("fitbuddy.views")
 router = APIRouter(tags=["Views"])
 templates = Jinja2Templates(directory="app/templates")
+templates.env.globals["backend_url"] = settings.BACKEND_URL
+templates.env.globals["frontend_url"] = settings.FRONTEND_URL
 
 def get_current_user(db: Session, user_id: Optional[int] = None) -> Optional[User]:
     """Helper to fetch the current user or most recent active user."""
